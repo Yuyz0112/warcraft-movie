@@ -1,0 +1,89 @@
+.switch,
+.switch * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+}
+
+.switch {
+    margin-top:2rem;
+}
+
+.input-field .switch-label {
+    cursor: pointer;
+    left: 0;
+    color: #fff;
+    position:relative;
+}
+
+.input-field .switch-label input[type=checkbox]{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.input-field .switch-label .lever {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 30px;
+    background-color: $switch-checked-lever-bg;
+    border-radius: 30px;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+    vertical-align: middle;
+    margin: 0 16px;
+}
+
+.input-field .switch-label .lever:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    border-radius: 42px;
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,.4);
+    left: -10px;
+    top: -6px;
+    transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease;
+    background: url(./assets/male.png) $switch-bg-color no-repeat;
+    background-size: 100%;
+}
+
+// Switch active style
+input[type=checkbox]:checked:not(:disabled) ~ .lever:active:after {
+       box-shadow: 0 1px 3px 1px rgba(0,0,0,.4), 0 0 0 15px transparentize($switch-bg-color, .9);
+}
+
+input[type=checkbox]:not(:disabled) ~ .lever:active:after {
+       box-shadow: 0 1px 3px 1px rgba(0,0,0,.4), 0 0 0 15px rgba(0, 0, 0, .08);
+}
+
+.input-field .switch-label input[type=checkbox]:checked + .lever:after {
+    left: 48px;
+    background: url(./assets/female.png) $switch-bg-color no-repeat;
+    background-size: 100%;
+}
+
+#faction-switch {
+    &.input-field .switch-label .lever {
+        background-color: $horde-color;
+    }
+
+    &.input-field .switch-label .lever:after {
+        background: url(./assets/horde.png) #fff no-repeat;
+        background-size: 100%;
+        background-position: -2px 1px;
+    }
+
+    &.input-field .switch-label input[type=checkbox]:checked + .lever {
+        background-color: $alliance-color;
+    }
+
+    &.input-field .switch-label input[type=checkbox]:checked + .lever:after {
+        background: url(./assets/alliance.png) #fff no-repeat;
+        background-size: 100%;
+    }
+}

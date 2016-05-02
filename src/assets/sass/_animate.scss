@@ -1,0 +1,42 @@
+.expand-transition {
+  transition : all .5s ease;
+  left: 0;
+}
+
+.expand-enter, .expand-leave {
+  left: -105%;
+}
+
+.ease-transition {
+  transition : all .5s ease;
+}
+
+.fade-out-transition {
+	transition : all .5s ease;
+	opacity: 1;
+}
+
+.fade-out-leave{
+	opacity:0;
+}
+
+.fade-in-transition {
+	transition : all .5s ease;
+	opacity: 1;
+}
+
+.fade-in-enter, .fade-in-leave{
+	opacity: 0;
+}
+
+.slide-from-right-transition {
+  transition : all .5s ease;
+  transition-delay: .25s;
+  opacity: 1;
+  right:15% !important;
+}
+
+.slide-from-right-enter, .slide-from-right-leave {
+  opacity: 0;
+  right:-10% !important;
+}

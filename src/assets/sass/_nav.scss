@@ -1,0 +1,116 @@
+nav{
+    color: $navbar-font-color;
+    /* @extend .z-depth-1; */
+    background-color: $primary-color;
+    width: 100%;
+    height: $navbar-height-mobile;
+    line-height: $navbar-height-mobile;
+    position: absolute;
+  
+    a {
+      color: $navbar-font-color;
+    }
+
+    .nav-wrapper{
+      position:relative;
+      height:100%;
+    }
+
+    @media #{$large-and-up} {
+      a.button-collapse { display: none; }
+      background-color: transparent;
+      a {
+        color: $primary-color !important;
+      }
+    }
+
+    // Collapse button
+    .button-collapse {
+      float: left;
+      position: relative;
+      z-index: 1;
+      height: $navbar-height-mobile;
+
+      i {
+        font-size: 2.7rem;
+        height: $navbar-height-mobile;
+        line-height: $navbar-height-mobile;
+      }
+    }
+
+    // Logo
+    .brand-logo {
+      position: absolute;
+      color: $navbar-font-color;
+      display: inline-block;
+      font-size: $navbar-brand-font-size;
+      padding: 0;
+      white-space: nowrap;
+
+      @media #{$medium-and-down} {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    // Navbar Links
+    ul {
+      margin: 0;
+
+      li {
+        float: left;
+        padding: 0 15px;
+      }
+      a {
+        transition: all .3s;
+        font-size: 1rem;
+        color: $navbar-font-color;
+        display: block;
+        cursor: pointer;
+        border-bottom: 2px solid $primary-color;
+        &:hover {
+          color: $primary-color-light;
+          border-bottom: 2px solid $primary-color-light;
+        }
+      }
+    }
+
+  }
+
+  .side-nav {
+    position: fixed;
+    width: 240px;
+    left: -105%;
+    top: $navbar-height-mobile;
+    margin: 0;
+
+    height: 100%;
+    height: calc(100% + 60px);
+    height: -moz-calc(100%); //Temporary Firefox Fix
+    padding-bottom: 60px;
+    background-color: $sidenav-bg-color;
+    z-index: 999;
+    overflow-y: auto;
+
+    @extend .z-depth-1;
+    will-change: left;
+
+    .collapsible{
+      margin: 0;
+    }
+
+    li {
+      float: none;
+      padding: 0 $sidenav-padding-right;
+      line-height: $sidenav-item-height;
+      &:hover, &.active { background-color: #ddd; }
+    }
+    a {
+      color: #444;
+      display: block;
+      font-size: 1rem;
+      height: $sidenav-item-height;
+      line-height: $sidenav-item-height;
+      padding: 0 $sidenav-padding-right;
+    }
+  }

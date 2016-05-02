@@ -1,0 +1,46 @@
+// shared styles
+  .btn, .btn-flat {
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: $button-height;
+    line-height: $button-line-height;
+    // margin-bottom: 15px;
+    outline: 0;
+    padding: 0 2rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    // Gets rid of tap active state
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .btn {
+    text-decoration:none;
+    color: $button-color-raised;
+    background-color: $button-color;
+    text-align: center;
+    letter-spacing: .5px;
+    @extend .z-depth-1;
+    transition: .2s ease-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten($button-color, 5%);
+      @extend .z-depth-1-half;
+    }
+  }
+  // Large button
+  .btn-large {
+    @extend .btn;
+    height: $button-height * 1.5;
+    line-height: 56px;
+
+    i {
+      font-size: $button-large-icon-font-size;
+    }
+  }
+
+  // Block button
+  .btn-block {
+    display: block;
+  }
