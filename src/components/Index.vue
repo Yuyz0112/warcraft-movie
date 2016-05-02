@@ -5,13 +5,16 @@
       <countdown :height.sync="textHeight"></countdown>
       <vs-bar :height.sync="barHeight" :trigger.sync="init"></vs-bar>
       <geo-map :height="geoHeight"></geo-map>
+      <div class="center-align">
+        <v-button id="horde-btn">为部落而战</v-button>
+        <v-button id="alliance-btn">为联盟而战</v-button>
+      </div>
     </div>
   </div>
 </div>
 </template>
 
 <script lang="babel">
-import card from './Card'
 import vButton from './Button'
 import countdown from './Countdown'
 import vsBar from './VSbar'
@@ -19,7 +22,6 @@ import geoMap from './GeoMap'
 
 export default {
   components: {
-    card,
     vButton,
     countdown,
     vsBar,
@@ -64,12 +66,23 @@ export default {
     overflow: hidden;
   }
   #main-wrapper {
-    height: 80%;
+    height: 95%;
+    padding-top: 56px;
     width: 100%;
   }
   .container {
     background: rgba(0, 0, 0, 0.7);
     height:100%;
     border-radius: 5px;
+  }
+  #horde-btn {
+    background: none;
+    border: 2px solid #B30000;
+    margin-right: .5rem;
+  }
+  #alliance-btn {
+    background: none;
+    border: 2px solid #247FAA;
+    margin-left: .5rem;
   }
 </style>

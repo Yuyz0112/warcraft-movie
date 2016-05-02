@@ -78,4 +78,17 @@ export default {
     display: inline-block;
     width:4.5rem;
   }
+  @media screen and (max-width: 992px) {
+    p {
+      font-size: 2rem;
+    }
+    span {
+      width: 2.5rem;
+    }
+    span i {
+      top: 2.5rem;
+      width: 2.5rem;
+      font-size: 10px;
+    }
+  }
 </style>

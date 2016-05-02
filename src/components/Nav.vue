@@ -1,16 +1,16 @@
 <template>
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo"><img src="../assets/forever.png"></a>
-    <a href="#" @click="show = show * -1" class="button-collapse"><i class="material-icons">menu</i></a>
+    <a v-link="'/'" class="brand-logo"><img src="../assets/forever.png"></a>
+    <a @click="show = show * -1" class="button-collapse"><img src="../assets/menu.png"></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li v-for="list of lists">
-        <a v-link="list.url" >{{ list.message }}</a>
+        <a v-link="list.url" @click="show = -1">{{ list.message }}</a>
       </li>
     </ul>
     <ul v-show="show === 1" class="side-nav" id="mobile-list" transition="expand">
       <li v-for="list of lists">
-        <a v-link="list.url" >{{ list.message }}</a>
+        <a v-link="list.url" @click="show = -1">{{ list.message }}</a>
       </li>
     </ul>
   </div>

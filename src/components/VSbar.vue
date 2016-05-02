@@ -121,12 +121,10 @@ export default {
     height: 100%;
   }
   #bar-left {
-    transition: all 1.5s linear;
     background: #B30000;
     border-radius: 5px 0 0 5px;
   }
   #bar-right {
-    transition: all 1.5s linear;
     background: #247FAA;
     border-radius: 0 5px 5px 0;
   }
@@ -137,5 +135,14 @@ export default {
     position: absolute;
     margin-left: -2rem;
     width: 4rem;
+  }
+  .container .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  @media screen and (max-width: 992px) {
+    .bar-wrapper {
+      margin-top: 2rem;
+    }
   }
 </style>

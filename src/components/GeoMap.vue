@@ -219,8 +219,8 @@ export default {
           .attr('transform', 'translate(0,0)')
         const projection = d3.geo.mercator()
           .center([107, 31])
-          .scale(height)
-          .translate([width / 2, height * 3 / 5])
+          .scale(Math.min(width * 3 / 4, height * 3 / 4))
+          .translate([width / 2, height / 2])
         const path = d3.geo.path()
           .projection(projection)
         let dataArray = []

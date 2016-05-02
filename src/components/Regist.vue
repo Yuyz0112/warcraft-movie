@@ -79,7 +79,9 @@
             <p>{{userInfo.contact}}</p>
           </div>
         </card>
-        <div id="map" v-show="showMap" transition="fade-in">
+      </div>
+      <div class="col s12 l4" id="map-holder" v-show="showMap">
+        <div id="map" transition="fade-in">
           <v-button id="close-map" class="red" @click="showMap = false">X</v-button>
           <collection id="geo-panel" :items.sync="pois" :select.sync="userInfo.geo" :show.sync="showMap"></collection>
         </div>
@@ -211,6 +213,10 @@ export default {
           valid = false
           return false
         }
+      }
+      if (this.userInfo.geo.location[0] === undefined) {
+        this.toastMessage = '请确认搜索后选择地址'
+        valid = false
       }
       const form = document.querySelector('#sign-up input.invalid')
       if (form !== null) {
@@ -344,12 +350,16 @@ export default {
     margin-top: 2rem;
   }
 
+  #map-holder {
+    position: fixed;
+    top: 5rem;
+    padding-top: 56px;
+    right: 15%;
+  }
+
   #map {
     width: 100%;
-    padding: 0 .75rem;
     height:450px;
-    position:absolute;
-    top: 56px;
     z-index: 999;
   }
 
@@ -376,5 +386,13 @@ export default {
     z-index: 1000;
     border-radius: 50%;
     padding: 0;
+  }
+
+  @media screen and (max-width: 992px) {
+    #map-holder {
+      right: 0;
+      top: 0;
+      padding-top: 0;
+    }
   }
 </style>
