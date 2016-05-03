@@ -39,7 +39,6 @@ export default {
     },
     navClick (i) {
       this.show = -1
-      console.log(i)
       if (i === 2) {
         this.unauth()
       }

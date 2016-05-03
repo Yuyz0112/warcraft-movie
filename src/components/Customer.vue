@@ -1,41 +1,17 @@
 <template>
 <div id="main-wrapper">
   <div class="container row">
-    <div class="col s12">
-      <card class="z-depth-2 small">
-        <div slot="content" class="row">
-          <div class="col s6 m4 l3">
-            <div id="avator">
-              <img :src="authData.avator" class="circle">
-            </div>
+    <div class="col s12 l6" v-for="card of cards">
+      <a v-link="card.url">
+        <card class="small hoverable">
+          <div slot="content">
+            <h4>{{ card.message }}</h4>
+            <img :src="card.img">
           </div>
-          <div class="col s6 m8 l9">
-            <p>{{authData.nickname}}</p>
-            <p>{{authData.guild}} @ {{authData.server}}</p>
-            <p></p>
-            <p :style="{color:authData.class.color}">{{authData.class.content}}</p>
-            <img v-show="authData.faction" src="../assets/alliance.png" id="faction" transition="fade-in">
-            <img v-show="!authData.faction" src="../assets/horde.png" id="faction" transition="fade-in">
-            <div class="chip">坐标：{{authData.geo.city}}</div>
-            <div class="chip">性别：{{authData.sex ? '女' : '男'}}</div>
-          </div>
-        </div>
-      </card>
-    </div>
-    <div class="col s12 l6">
-      <card class="z-depth-2 small">1</card>
-    </div>
-    <div class="col s12 l6">
-      <card class="z-depth-2 small">1</card>
-    </div>
-    <div class="col s12 l6">
-      <card class="z-depth-2 small">1</card>
-    </div>
-    <div class="col s12 l6">
-      <card class="z-depth-2 small">1</card>
+        </card>
+      </a>
     </div>
   </div>
-
 </div>
 </template>
 
@@ -71,6 +47,12 @@ export default {
         },
         contact: ''
       },
+      cards: [
+        {message: '《魔兽》要闻', url: '/customer/news', img: '/static/o.png'},
+        {message: '找寻战友', url: '../customer/partner', img: '/static/o.png'},
+        {message: '我的《魔兽》', url: '../customer/life', img: '/static/o.png'},
+        {message: '附近的人', url: '../customer/nearby', img: '/static/o.png'}
+      ],
       radius: 6378137.0,
       pi: Math.PI,
       query: []
@@ -125,7 +107,7 @@ export default {
 
 <style scoped='true'>
   #main-wrapper {
-    padding-top: 5rem;
+    padding-top: 10rem;
   }
 
   #avator{
@@ -138,5 +120,9 @@ export default {
     width: 100%;
     height: 100%;
     display: block;
+  }
+
+  .small {
+    text-align: center;
   }
 </style>

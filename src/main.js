@@ -28,6 +28,26 @@ router.map({
     component: (resolve) => {
       require(['./components/Customer'], resolve)
     }
+  },
+  '/customer/news': {
+    component: (resolve) => {
+      require(['./components/Index'], resolve)
+    }
+  },
+  '/customer/partner': {
+    component: (resolve) => {
+      require(['./components/Index'], resolve)
+    }
+  },
+  '/customer/life': {
+    component: (resolve) => {
+      require(['./components/Index'], resolve)
+    }
+  },
+  '/customer/nearby': {
+    component: (resolve) => {
+      require(['./components/Index'], resolve)
+    }
   }
 })
 
