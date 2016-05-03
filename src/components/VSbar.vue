@@ -59,6 +59,8 @@ export default {
   },
   methods: {
     dwidth () {
+      this.width.left = 0
+      this.width.right = 0
       setTimeout(() => {
         this.width.left = this.per.leftPer - 0.1 + '%'
         this.width.right = this.per.rightPer - 0.1 + '%'
@@ -121,10 +123,12 @@ export default {
     height: 100%;
   }
   #bar-left {
+    transition: all 1.5s linear;
     background: #B30000;
     border-radius: 5px 0 0 5px;
   }
   #bar-right {
+    transition: all 1.5s linear;
     background: #247FAA;
     border-radius: 0 5px 5px 0;
   }

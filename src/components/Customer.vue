@@ -1,32 +1,78 @@
 <template>
 <div id="main-wrapper">
-  <div class='panel row'>
-    <div class='grid col s3 white-text' v-for="item of query" transition="item">
-      <p>{{item.nickname}}</p>
-      <div class="avator">
-        <img :src="item.avator" class="responsive-img">
-      </div>
-      <p>距离：<span class="teal-text">{{item.distance}}</span>米</p>
+  <div class="container row">
+    <div class="col s12">
+      <card class="z-depth-2 small">
+        <div slot="content" class="row">
+          <div class="col s6 m4 l3">
+            <div id="avator">
+              <img :src="authData.avator" class="circle">
+            </div>
+          </div>
+          <div class="col s6 m8 l9">
+            <p>{{authData.nickname}}</p>
+            <p>{{authData.guild}} @ {{authData.server}}</p>
+            <p></p>
+            <p :style="{color:authData.class.color}">{{authData.class.content}}</p>
+            <img v-show="authData.faction" src="../assets/alliance.png" id="faction" transition="fade-in">
+            <img v-show="!authData.faction" src="../assets/horde.png" id="faction" transition="fade-in">
+            <div class="chip">坐标：{{authData.geo.city}}</div>
+            <div class="chip">性别：{{authData.sex ? '女' : '男'}}</div>
+          </div>
+        </div>
+      </card>
+    </div>
+    <div class="col s12 l6">
+      <card class="z-depth-2 small">1</card>
+    </div>
+    <div class="col s12 l6">
+      <card class="z-depth-2 small">1</card>
+    </div>
+    <div class="col s12 l6">
+      <card class="z-depth-2 small">1</card>
+    </div>
+    <div class="col s12 l6">
+      <card class="z-depth-2 small">1</card>
     </div>
   </div>
+
 </div>
 </template>
 
 <script lang='babel'>
+import card from './Card'
 import vInput from './Input'
 import vButton from './Button'
 import Wilddog from 'Wilddog'
 
 export default {
   components: {
+    card,
     vInput,
     vButton
   },
   data () {
     return {
+      authData: {
+        avator: '',
+        nickname: '',
+        server: '',
+        guild: '',
+        class: {
+          content: '职业',
+          color: '#fff'
+        },
+        faction: false,
+        sex: false,
+        geo: {
+          address: '',
+          location: [],
+          city: '城市名'
+        },
+        contact: ''
+      },
       radius: 6378137.0,
       pi: Math.PI,
-      authData: {},
       query: []
     }
   },
@@ -40,12 +86,6 @@ export default {
     },
     getRad (d) {
       return d * this.pi / 180.0
-    },
-    unauth () {
-      const ref = new Wilddog('https://justwow.wilddogio.com/')
-      ref.unauth()
-      this.$dispatch('signIn', false)
-      this.$route.router.go('/')
     },
     sort (obj) {
       let array = []
@@ -78,37 +118,25 @@ export default {
     } else {
       this.$route.router.go('/regist')
     }
-    this.findNear()
+    // this.findNear()
   }
 }
 </script>
 
 <style scoped='true'>
-  html, body {
-    width: 100%;
-    height: 100%;
-  }
   #main-wrapper {
+    padding-top: 5rem;
+  }
+
+  #avator{
+    width: 140px;
+    height: 140px;
+    margin: 1rem auto;
+  }
+
+  #avator > img {
     width: 100%;
     height: 100%;
-    display: flex;
-    display: -webkit-flex;
-    align-items: center;
-    -webkit-align-items: center;
-  }
-	.panel {
-		width: 900px;
-	}
-	.grid {
-		height: 230px;
-    background: rgba(0, 0, 0, 0.7);
-    margin: 0 5px 5px 0;
-	}
-  .avator {
-    width: 100px;
-    height: 100px;
-  }
-  .teal-text {
-    font-weight: bold;
+    display: block;
   }
 </style>

@@ -6,8 +6,8 @@
       <vs-bar :height.sync="barHeight" :trigger.sync="init"></vs-bar>
       <geo-map :height="geoHeight"></geo-map>
       <div class="center-align">
-        <v-button id="horde-btn">为部落而战</v-button>
-        <v-button id="alliance-btn">为联盟而战</v-button>
+        <v-button id="horde-btn" v-link="url">为部落而战</v-button>
+        <v-button id="alliance-btn" v-link="url">为联盟而战</v-button>
       </div>
     </div>
   </div>
@@ -19,6 +19,7 @@ import vButton from './Button'
 import countdown from './Countdown'
 import vsBar from './VSbar'
 import geoMap from './GeoMap'
+import Wilddog from 'Wilddog'
 
 export default {
   components: {
@@ -31,7 +32,8 @@ export default {
     return {
       textHeight: 0,
       barHeight: 0,
-      init: false
+      init: false,
+      url: '/regist'
     }
   },
   computed: {
@@ -42,6 +44,15 @@ export default {
       } else {
         return 0
       }
+    }
+  },
+  ready () {
+    const ref = new Wilddog('https://justwow.wilddogio.com/')
+    const authData = ref.getAuth()
+    if (authData) {
+      this.url = '/customer'
+    } else {
+      this.url = '/regist'
     }
   },
   route: {

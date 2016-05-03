@@ -214,7 +214,7 @@ export default {
         const height = val
         const svg = d3.select('#c-map').append('svg')
           .attr('width', width)
-          .attr('height', height)
+          .attr('height', height * 3 / 4)
           .append('g')
           .attr('transform', 'translate(0,0)')
         const projection = d3.geo.mercator()

@@ -27,6 +27,14 @@ export default {
           url: 'http://wow.tgbus.com/style2015/images/ZS_xiaoyuan.png',
           color: '#c69b6d'
         }, {
+          name: '圣骑士',
+          url: 'http://wow.tgbus.com/style2015/images/QS_xiaoyuan.png',
+          color: '#f48cba'
+        }, {
+          name: '盗贼',
+          url: 'http://wow.tgbus.com/style2015/images/DZ_xiaoyuan.png',
+          color: '#fff468'
+        }, {
           name: '萨满祭祀',
           url: 'http://wow.tgbus.com/style2015/images/SM_xiaoyuan.png',
           color: '#2359ff'
@@ -38,6 +46,26 @@ export default {
           name: '牧师',
           url: 'http://wow.tgbus.com/style2015/images/MS_xiaoyuan.png',
           color: '#f0ebe0'
+        }, {
+          name: '死亡骑士',
+          url: 'http://wow.tgbus.com/style2015/images/DK_xiaoyuan.png',
+          color: '#c41e3b'
+        }, {
+          name: '法师',
+          url: 'http://wow.tgbus.com/style2015/images/FS_xiaoyuan.png',
+          color: '#68ccef'
+        }, {
+          name: '术士',
+          url: 'http://wow.tgbus.com/style2015/images/SS_xiaoyuan.png',
+          color: '#9382c9'
+        }, {
+          name: '武僧',
+          url: 'http://wow.tgbus.com/style2015/images/WS_xiaoyuan.png',
+          color: '#00ffba'
+        }, {
+          name: '德鲁伊',
+          url: 'http://wow.tgbus.com/style2015/images/XD_xiaoyuan.png',
+          color: '#ff7c0a'
         }
       ]
     }
